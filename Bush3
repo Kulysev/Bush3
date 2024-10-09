@@ -1,0 +1,88 @@
+Задание 3-8:
+nano вычисления.py
+
+def calculate_modulo():
+    results = {
+        "1697 % 13": 1697 % 13,
+        "1697 modulo 13": 1697 % 13,
+        "772 % -45": 772 % -45,
+        "772 modulo -45": 772 % -45,
+        "568 % 12": 568 % 12,
+        "-568 modulo 12": -568 % 12,
+        "-5437 % -17": -5437 % -17,
+        "-5437 modulo -17": -5437 % -17,
+    }
+
+    for operation, result in results.items():
+        print(f"{operation} = {result}")
+
+if __name__ == "__main__":
+    calculate_modulo()
+
+python3 вычисления.py
+Задание 3-9:
+nano bitwise_negation.py
+
+def bitwise_negation_unsigned():
+    numbers = [56, 1018, 58362]
+    print("Побитовое отрицание (беззнаковые):")
+    for num in numbers:
+        negated = ~num & 0xFFFF  
+        print(f"~{num} = {negated} (в двоичном: {format(negated, '016b')})")
+
+def bitwise_negation_signed():
+    numbers = [56, 1018, 58362]
+    print("\nПобитовое отрицание (знаковые):")
+    for num in numbers:
+        negated = ~num  
+        print(f"~{num} = {negated} (в двоичном: {format(negated & 0xFFFF, '016b')})")
+
+if __name__ == "__main__":
+    bitwise_negation_unsigned()
+    bitwise_negation_signed()
+
+python3 bitwise_negation.py
+Задание 3-10:
+nano bitwise_operations.py
+
+def bitwise_operations():
+    pairs = [(1122, 908), (49608, 33036)]
+    print("Побитовое И, ИЛИ, исключающее ИЛИ (беззнаковые):")
+    for a, b in pairs:
+        bitwise_and = a & b
+        bitwise_or = a | b
+        bitwise_xor = a ^ b
+        print(f"{a} & {b} = {bitwise_and} (в двоичном: {format(bitwise_and, '016b')})")
+        print(f"{a} | {b} = {bitwise_or} (в двоичном: {format(bitwise_or, '016b')})")
+        print(f"{a} ^ {b} = {bitwise_xor} (в двоичном: {format(bitwise_xor, '016b')})")
+        print()  
+
+if __name__ == "__main__":
+    bitwise_operations()
+
+python3 bitwise_operations.py
+Задание 3-11:
+nano arithmetic_shifts.py
+
+def arithmetic_bit_shifts():
+    shifts = [
+        (25649, 3),  # 25649 >> 3
+        (25649, 2),  # 25649 << 2
+        (9154, 4),   # 9154 >> 4
+        (9154, -3)   # 9154 << 3
+    ]
+    
+    print("Арифметические битовые сдвиги (знаковые):")
+    for num, shift in shifts:
+        if shift > 0:
+            shifted = num >> shift
+            print(f"{num} >> {shift} = {shifted}")
+        else:
+            shifted = num << -shift
+            print(f"{num} << {-shift} = {shifted}")
+
+if __name__ == "__main__":
+    arithmetic_bit_shifts()
+
+python3 arithmetic_shifts.py
+
